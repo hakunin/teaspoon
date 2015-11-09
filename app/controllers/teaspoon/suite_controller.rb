@@ -15,7 +15,6 @@ class Teaspoon::SuiteController < ActionController::Base
   def hook
     hooks = Teaspoon::Suite.new(params).hooks[params[:hook].to_s]
     response = {}
-    binding.pry
     hooks.map { |hook| 
       hook.call(params[:args], response)
     }
